@@ -1,5 +1,9 @@
 require './dashboard'
+require './ships'
+require './validations'
+require 'pry'
 class Computer
+  include Validations
   attr_accessor :ships, :dashboard
 
   def initialize
@@ -8,8 +12,7 @@ class Computer
   end
 
   def random_position
-    board.
-    ships.destroyer[]
+    destroyer_validations.sample
   end
 
 end
