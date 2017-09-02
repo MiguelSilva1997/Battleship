@@ -1,4 +1,4 @@
-require './dashboard'
+require './lib/dashboard'
 class Player
  attr_reader :dashboard
 

@@ -1,12 +1,11 @@
-require './messages'
-require './computer'
-require './player'
+require './lib/messages'
+require './lib/computer'
+require './lib/player'
 
 class Gameplay
   include Messages
 
   attr_reader :player, :ai
-  #
   def initialize
     @player = Player.new
     @ai = Computer.new
@@ -42,7 +41,8 @@ class Gameplay
   end
 
   def shoot
-    shot = gets.chomp
+    shot = gets
+    binding.pry
     if !ai.dashboard.board.keys.include?(shot)
       display("Wrong coordinate")
     elsif ai.dashboard.board[shot][0] == true

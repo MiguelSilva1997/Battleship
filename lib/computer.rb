@@ -1,6 +1,6 @@
-require './dashboard'
-require './ships'
-require './validations'
+require './lib/dashboard'
+require './lib/ships'
+require './lib/validations'
 require 'pry'
 class Computer
   include Validations
