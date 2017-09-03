@@ -209,7 +209,7 @@ class Gameplay
 
   def end_game(user)
     shots = user.dashboard.board.values.count{|x| x[1] != " "}
-    shots += 1 if user == ai
+    shots += 1 if user == player
     finish = Time.now
     diff = finish - time
     display(end_game_message(shots, diff.to_i))
