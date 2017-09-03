@@ -14,27 +14,27 @@
       <img src="./assets/0.10.2/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2017-09-03T15:19:10-06:00">2017-09-03T15:19:10-06:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2017-09-03T15:39:43-06:00">2017-09-03T15:39:43-06:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
         <div class="file_list_container" id="AllFiles">
   <h2>
     <span class="group_name">All Files</span>
-    (<span class="covered_percent"><span class="red">43.25%</span></span>
+    (<span class="covered_percent"><span class="red">48.18%</span></span>
      covered at
      <span class="covered_strength">
        <span class="red">
-         0.67
+         0.77
        </span>
     </span> hits/line)
   </h2>
   <a name="AllFiles"></a>
   <div>
-    <b>9</b> files in total.
-    <b>252</b> relevant lines. 
-    <span class="green"><b>109</b> lines covered</span> and
-    <span class="red"><b>143</b> lines missed </span>
+    <b>10</b> files in total.
+    <b>274</b> relevant lines. 
+    <span class="green"><b>132</b> lines covered</span> and
+    <span class="red"><b>142</b> lines missed </span>
   </div>
   <table class="file_list">
     <thead>
@@ -62,12 +62,12 @@
       
       <tr>
         <td class="strong"><a href="#30f820f71f1ed3ddedaf94b96811d9d755de726e" class="src_link" title="lib/dashboard.rb">lib/dashboard.rb</a></td>
-        <td class="yellow strong">83.33 %</td>
+        <td class="green strong">100.0 %</td>
         <td>20</td>
         <td>6</td>
-        <td>5</td>
-        <td>1</td>
-        <td>1.8</td>
+        <td>6</td>
+        <td>0</td>
+        <td>2.7</td>
       </tr>
       
       <tr>
@@ -118,6 +118,16 @@
         <td>5</td>
         <td>0</td>
         <td>1.6</td>
+      </tr>
+      
+      <tr>
+        <td class="strong"><a href="#512b0f62f239702aebb58ab871d9458d7b1b28b2" class="src_link" title="test/dashboard_test.rb">test/dashboard_test.rb</a></td>
+        <td class="green strong">100.0 %</td>
+        <td>48</td>
+        <td>22</td>
+        <td>22</td>
+        <td>0</td>
+        <td>1.7</td>
       </tr>
       
       <tr>
@@ -290,14 +300,14 @@
           <code class="ruby">    if coordinates[0][0] == coordinates[1][0]</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="21">
-          <span class="hits">2</span>
+        <li class="covered" data-hits="3" data-linenumber="21">
+          <span class="hits">3</span>
           
           <code class="ruby">      full_coordinates = coordinates.insert(1,[coordinates[0][0] + coordinates[0][1].next])</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="22">
-          <span class="hits">2</span>
+        <li class="covered" data-hits="3" data-linenumber="22">
+          <span class="hits">3</span>
           
           <code class="ruby">      check_for_ai_occupied_positions(full_coordinates.flatten)</code>
         </li>
@@ -308,14 +318,14 @@
           <code class="ruby">    else</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="24">
-          <span class="hits">2</span>
+        <li class="covered" data-hits="1" data-linenumber="24">
+          <span class="hits">1</span>
           
           <code class="ruby">      full_coordinates = coordinates.insert(1,[coordinates[0][0].next + coordinates[0][1]])</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="25">
-          <span class="hits">2</span>
+        <li class="covered" data-hits="1" data-linenumber="25">
+          <span class="hits">1</span>
           
           <code class="ruby">      check_for_ai_occupied_positions(full_coordinates.flatten)</code>
         </li>
@@ -400,11 +410,11 @@
         <div class="source_table" id="30f820f71f1ed3ddedaf94b96811d9d755de726e">
   <div class="header">
     <h3>lib/dashboard.rb</h3>
-    <h4><span class="yellow">83.33 %</span> covered</h4>
+    <h4><span class="green">100.0 %</span> covered</h4>
     <div>
       <b>6</b> relevant lines. 
-      <span class="green"><b>5</b> lines covered</span> and
-      <span class="red"><b>1</b> lines missed.</span>
+      <span class="green"><b>6</b> lines covered</span> and
+      <span class="red"><b>0</b> lines missed.</span>
     </div>
   </div>
   
@@ -429,8 +439,8 @@
           <code class="ruby">  def initialize</code>
         </li>
       
-        <li class="covered" data-hits="7" data-linenumber="4">
-          <span class="hits">7</span>
+        <li class="covered" data-hits="11" data-linenumber="4">
+          <span class="hits">11</span>
           
           <code class="ruby">    @board = {&quot;A1&quot; =&gt; [false, &quot; &quot;], &quot;A2&quot; =&gt; [false, &quot; &quot;], &quot;A3&quot; =&gt; [false, &quot; &quot;], &quot;A4&quot; =&gt; [false, &quot; &quot;],</code>
         </li>
@@ -483,8 +493,8 @@
           <code class="ruby">    .  1 2 3 4</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="13">
-          
+        <li class="covered" data-hits="1" data-linenumber="13">
+          <span class="hits">1</span>
           
           <code class="ruby">    A  #{board[&quot;A1&quot;][1]} #{board[&quot;A2&quot;][1]} #{board[&quot;A3&quot;][1]} #{board[&quot;A4&quot;][1]}</code>
         </li>
@@ -2769,6 +2779,313 @@
         </li>
       
         <li class="never" data-hits="" data-linenumber="24">
+          
+          
+          <code class="ruby">end</code>
+        </li>
+      
+    </ol>
+  </pre>
+</div>
+
+      
+        <div class="source_table" id="512b0f62f239702aebb58ab871d9458d7b1b28b2">
+  <div class="header">
+    <h3>test/dashboard_test.rb</h3>
+    <h4><span class="green">100.0 %</span> covered</h4>
+    <div>
+      <b>22</b> relevant lines. 
+      <span class="green"><b>22</b> lines covered</span> and
+      <span class="red"><b>0</b> lines missed.</span>
+    </div>
+  </div>
+  
+  <pre>
+    <ol>
+      
+        <li class="covered" data-hits="1" data-linenumber="1">
+          <span class="hits">1</span>
+          
+          <code class="ruby">require &#39;./test/test_helper&#39;</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="2">
+          <span class="hits">1</span>
+          
+          <code class="ruby">require &#39;minitest/autorun&#39;</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="3">
+          <span class="hits">1</span>
+          
+          <code class="ruby">require &#39;./lib/dashboard&#39;</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="4">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="5">
+          <span class="hits">1</span>
+          
+          <code class="ruby">class DashboardTest &lt; Minitest::Test</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="6">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="7">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  def board</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="8">
+          
+          
+          <code class="ruby">    {&quot;A1&quot; =&gt; [false, &quot; &quot;], &quot;A2&quot; =&gt; [false, &quot; &quot;], &quot;A3&quot; =&gt; [false, &quot; &quot;], &quot;A4&quot; =&gt; [false, &quot; &quot;],</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="9">
+          
+          
+          <code class="ruby">   &quot;B1&quot; =&gt; [false, &quot; &quot;], &quot;B2&quot; =&gt; [false, &quot; &quot;], &quot;B3&quot; =&gt; [false, &quot; &quot;], &quot;B4&quot; =&gt; [false, &quot; &quot;],</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="10">
+          
+          
+          <code class="ruby">   &quot;C1&quot; =&gt; [false, &quot; &quot;], &quot;C2&quot; =&gt; [false, &quot; &quot;], &quot;C3&quot; =&gt; [false, &quot; &quot;], &quot;C4&quot; =&gt; [false, &quot; &quot;],</code>
+        </li>
+      
+        <li class="covered" data-hits="16" data-linenumber="11">
+          <span class="hits">16</span>
+          
+          <code class="ruby">   &quot;D1&quot; =&gt; [false, &quot; &quot;], &quot;D2&quot; =&gt; [false, &quot; &quot;], &quot;D3&quot; =&gt; [false, &quot; &quot;], &quot;D4&quot; =&gt; [false, &quot; &quot;]}</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="12">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="13">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="14">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  def puts_board</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="15">
+          
+          
+          <code class="ruby">    &quot;    ++++++++++++++++++</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="16">
+          
+          
+          <code class="ruby">    .  1 2 3 4</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="17">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    A  #{board[&quot;A1&quot;][1]} #{board[&quot;A2&quot;][1]} #{board[&quot;A3&quot;][1]} #{board[&quot;A4&quot;][1]}</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="18">
+          
+          
+          <code class="ruby">    B  #{board[&quot;B1&quot;][1]} #{board[&quot;B2&quot;][1]} #{board[&quot;B3&quot;][1]} #{board[&quot;B4&quot;][1]}</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="19">
+          
+          
+          <code class="ruby">    C  #{board[&quot;C1&quot;][1]} #{board[&quot;C2&quot;][1]} #{board[&quot;C3&quot;][1]} #{board[&quot;C4&quot;][1]}</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="20">
+          
+          
+          <code class="ruby">    D  #{board[&quot;D1&quot;][1]} #{board[&quot;D2&quot;][1]} #{board[&quot;D3&quot;][1]} #{board[&quot;D4&quot;][1]}</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="21">
+          
+          
+          <code class="ruby">    ++++++++++++++++++&quot;</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="22">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="23">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="24">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  def test_instance_of_the_class</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="25">
+          <span class="hits">1</span>
+          
+          <code class="ruby">     assert_instance_of Dashboard, Dashboard.new</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="26">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="27">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="28">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  def test_key_in_the_board</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="29">
+          <span class="hits">1</span>
+          
+          <code class="ruby">     dashboard = Dashboard.new</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="30">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="31">
+          <span class="hits">1</span>
+          
+          <code class="ruby">     assert dashboard.board[&quot;A1&quot;]</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="32">
+          <span class="hits">1</span>
+          
+          <code class="ruby">     refute dashboard.board[&quot;Z1&quot;]</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="33">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="34">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="35">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  def test_content_of_key</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="36">
+          <span class="hits">1</span>
+          
+          <code class="ruby">     dashboard = Dashboard.new</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="37">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="38">
+          <span class="hits">1</span>
+          
+          <code class="ruby">     assert_equal [false, &quot; &quot;], dashboard.board[&quot;A1&quot;]</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="39">
+          <span class="hits">1</span>
+          
+          <code class="ruby">     assert_equal [false, &quot; &quot;], dashboard.board[&quot;B1&quot;]</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="40">
+          <span class="hits">1</span>
+          
+          <code class="ruby">     assert_equal [false, &quot; &quot;], dashboard.board[&quot;C1&quot;]</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="41">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="42">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="43">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  def test_if_beginner_board_method</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="44">
+          <span class="hits">1</span>
+          
+          <code class="ruby">     dashboard = Dashboard.new</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="45">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="46">
+          <span class="hits">1</span>
+          
+          <code class="ruby">     assert_equal puts_board, dashboard.begginer_game</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="47">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="48">
           
           
           <code class="ruby">end</code>

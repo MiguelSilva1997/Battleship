@@ -1,7 +1,7 @@
 require './test/test_helper'
 require 'minitest/autorun'
 require './lib/computer'
-require './lib/gameplay'
+
 
 class ComputerTest < Minitest::Test
   def validations
