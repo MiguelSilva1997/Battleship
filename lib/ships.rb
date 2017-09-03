@@ -6,5 +6,4 @@ class Ships
     @cruiser = {}
   end
 
-
 end

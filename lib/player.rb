@@ -1,9 +1,9 @@
 require './lib/dashboard'
 class Player
- attr_reader :dashboard
+ attr_reader :dashboard, :ships
 
   def initialize
-    @battleship ={}
+    @ships = Ships.new
     @dashboard = Dashboard.new
   end
 

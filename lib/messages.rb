@@ -21,4 +21,9 @@ module Messages
     The grid has A1 at the top left and D4 at the bottom right.
     Enter the squares for the two-unit ship:"
   end
+
+  def wrong_coordinate
+    "Wrong coordinate! Ex: 'A1 A2'"
+  end
+
 end

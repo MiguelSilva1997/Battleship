@@ -1,9 +1,11 @@
 require './lib/messages'
 require './lib/computer'
 require './lib/player'
+require './lib/Validations'
 
 class Gameplay
   include Messages
+  include Validations
 
   attr_reader :player, :ai
   def initialize
@@ -34,15 +36,41 @@ class Gameplay
   def play_game
     display(player_ship_placement)
     ai.ships.destroyer[:coordinates] = ai.random_position.sample(2)
-    ai.ships.destroyer[:coordinates].each do |position|
-      ai.dashboard.board[position][0] = true
+    board_positioning(ai)
+    # ai.ships.destroyer[:coordinates].each do |position|
+    #   ai.dashboard.board[position][0] = true
+    # end
+    player_coordinates_destroyer
+  end
+
+  def player_coordinates_destroyer
+    coordinate = gets.chomp.strip
+    if !coordinate.include?(' ')
+      display(wrong_coordinate)
+      player_coordinates_destroyer
+    elsif !destroyer_validations.include?(coordinate.split(" "))
+      display(wrong_coordinate)
+      player_coordinates_destroyer
+    else
+      player.ships.destroyer[:coordinates] = coordinate.split(" ")
+      board_positioning(player)
+      binding.pry
     end
-    shoot
+  end
+
+  def player_coordinates_cruiser
+
+  end
+
+  def board_positioning(player)
+    player.ships.destroyer[:coordinates].each do |position|
+      player.dashboard.board[position][0] = true
+    end
   end
 
   def shoot
-    shot = gets
-    binding.pry
+    shot = gets.chomp
+    # binding.pry
     if !ai.dashboard.board.keys.include?(shot)
       display("Wrong coordinate")
     elsif ai.dashboard.board[shot][0] == true
