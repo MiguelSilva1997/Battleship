@@ -14,7 +14,7 @@ module Messages
   end
 
   def player_ship_placement
-    "I have laid out my ships on the grid.
+    "     I have laid out my ships on the grid.
     You now need to layout your two ships.
     The first is two units long and the
     second is three units long.

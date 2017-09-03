@@ -168,13 +168,13 @@ class Gameplay
     elsif player.dashboard.board[shot][0] == true
       display(ai_hit)
       player.dashboard.board[shot][1] = "H"
-      sleep(3)
+      sleep(2)
       display(player.dashboard.begginer_game)
       check_player_armada
     else
       display(ai_miss)
       player.dashboard.board[shot][1] = "M"
-      sleep(3)
+      sleep(2)
       display(player.dashboard.begginer_game)
       shoot
     end
