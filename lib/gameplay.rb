@@ -1,7 +1,7 @@
 require './lib/messages'
 require './lib/computer'
 require './lib/player'
-require './lib/Validations'
+require './lib/validations'
 
 class Gameplay
   include Messages
@@ -36,10 +36,7 @@ class Gameplay
   def play_game
     display(player_ship_placement)
     ai.ships.destroyer[:coordinates] = ai.random_position.sample(2)
-    board_positioning(ai)
-    # ai.ships.destroyer[:coordinates].each do |position|
-    #   ai.dashboard.board[position][0] = true
-    # end
+    board_positioning_destroyer(ai)
     player_coordinates_destroyer
   end
 
@@ -53,16 +50,35 @@ class Gameplay
       player_coordinates_destroyer
     else
       player.ships.destroyer[:coordinates] = coordinate.split(" ")
-      board_positioning(player)
-      binding.pry
+      board_positioning_destroyer(player)
     end
+    display(player_cruiser_ship)
+    player_coordinates_cruiser
   end
 
   def player_coordinates_cruiser
-
+    coordinate = gets.chomp.strip
+    if !coordinate.include?(' ')
+      display(wrong_coordinate)
+      player_coordinates_cruiser
+    elsif !cruiser_validations = coordinate.split(" ")
+      display(wrong_coordinate_cruiser)
+      player_coordinates_cruiser
+    else
+      cruiser_coordinates(coordinate.split(" "))
+    end
   end
 
-  def board_positioning(player)
+  def cruiser_coordinates(coordinates)
+    if coordinates[0][0] == coordinates[1][0]
+      full_coordinates = coordinates.insert(1,[coordinates[0][0] + coordinates[0][1].next])
+      binding.pry
+    else
+
+    end
+  end
+
+  def board_positioning_destroyer(player)
     player.ships.destroyer[:coordinates].each do |position|
       player.dashboard.board[position][0] = true
     end
@@ -70,7 +86,6 @@ class Gameplay
 
   def shoot
     shot = gets.chomp
-    # binding.pry
     if !ai.dashboard.board.keys.include?(shot)
       display("Wrong coordinate")
     elsif ai.dashboard.board[shot][0] == true

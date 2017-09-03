@@ -1,4 +1,6 @@
 require './lib/dashboard'
+require './lib/ships'
+
 class Player
  attr_reader :dashboard, :ships
 

@@ -26,4 +26,12 @@ module Messages
     "Wrong coordinate! Ex: 'A1 A2'"
   end
 
+  def player_cruiser_ship
+    "Enter the squares for the three-unit ship:"
+  end
+
+  def wrong_coordinate_cruiser
+    "wrong_coordinate! Ex: 'A1 A3'"
+  end
+
 end

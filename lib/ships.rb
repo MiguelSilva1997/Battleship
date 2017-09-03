@@ -1,3 +1,4 @@
+
 class Ships
   attr_accessor :destroyer, :cruiser
 
