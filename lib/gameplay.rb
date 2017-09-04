@@ -11,11 +11,15 @@ class Gameplay
   def initialize
     @player = Player.new
     @ai = Computer.new
-    @time = time
+    @time = Time.now
   end
 
-  def display(output)
-    puts output
+  def input
+    gets.chomp
+  end
+
+  def display(input)
+    puts input
   end
 
   def run_game
@@ -25,7 +29,6 @@ class Gameplay
       display(instructions)
       run_game
     elsif answer == "p" || answer == "play"
-      @time = Time.now
       play_game
     elsif answer == "q" || answer == "quit"
       puts "Bye"
@@ -37,79 +40,17 @@ class Gameplay
 
   def play_game
     display(player_ship_placement)
-    ai.ships.destroyer[:coordinates] = ai.random_position_destroyer
-    ai.ships.cruiser[:coordinates] = ai.random_position_cruiser
-    board_positioning_destroyer(ai)
-    board_positioning_cruiser(ai)
-    player_coordinates_destroyer
-    shoot
-  end
-
-
-  def player_coordinates_destroyer
-    coordinate = gets.chomp.strip
-    if !coordinate.include?(' ')
-      display(wrong_coordinate)
-      player_coordinates_destroyer
-    elsif !destroyer_validations.include?(coordinate.split(" ").sort)
-      display(wrong_coordinate)
-      player_coordinates_destroyer
-    else
-      player.ships.destroyer[:coordinates] = coordinate.split(" ").sort
-      board_positioning_destroyer(player)
-    end
+    ai.random_position_destroyer
+    ai.random_position_cruiser
+    player.player_coordinates_destroyer(input)
     display(player_cruiser_ship)
-    player_coordinates_cruiser
+    player.player_coordinates_cruiser(input)
+    display(shots)
+    shoot(input)
   end
 
-  def player_coordinates_cruiser
-    coordinate = gets.chomp.strip
-    if !coordinate.include?(' ')
-      display(wrong_coordinate_cruiser)
-      player_coordinates_cruiser
-    elsif !cruiser_validations = coordinate.split(" ").sort
-      display(wrong_coordinate_cruiser)
-      player_coordinates_cruiser
-    else
-      cruiser_coordinates(coordinate.split(" ").sort)
-    end
-  end
 
-  def cruiser_coordinates(coordinates)
-    if coordinates[0][0] == coordinates[1][0]
-      full_coordinates = coordinates.insert(1,[coordinates[0][0] + coordinates[0][1].next])
-      check_for_occupied_positions(full_coordinates.flatten)
-    else
-      full_coordinates = coordinates.insert(1,[coordinates[0][0].next + coordinates[0][1]])
-      check_for_occupied_positions(full_coordinates.flatten)
-    end
-  end
-
-  def check_for_occupied_positions(full_coordinates)
-    if full_coordinates.any?{|a| player.ships.destroyer[:coordinates].include?(a)}
-      display(occupied_space)
-      player_coordinates_cruiser
-    else
-      player.ships.cruiser[:coordinates] = full_coordinates
-      board_positioning_cruiser(player)
-    end
-  end
-
-  def board_positioning_cruiser(user)
-    user.ships.cruiser[:coordinates].each do |position|
-      user.dashboard.board[position][0] = true
-    end
-  end
-
-  def board_positioning_destroyer(player)
-    player.ships.destroyer[:coordinates].each do |position|
-      player.dashboard.board[position][0] = true
-    end
-  end
-
-  def shoot
-    display(shot)
-    shot = gets.chomp
+  def shoot(shot = input)
     if !ai.dashboard.board.keys.include?(shot)
       display(wrong_shot_coordinate)
       shoot
@@ -158,7 +99,6 @@ class Gameplay
     end
   end
 
-
   def ai_shoot
     shot = ai.dashboard.board.keys.sample
     if !player.dashboard.board.keys.include?(shot)
@@ -176,6 +116,7 @@ class Gameplay
       player.dashboard.board[shot][1] = "M"
       sleep(2)
       display(player.dashboard.begginer_game)
+      display(shots)
       shoot
     end
   end

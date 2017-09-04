@@ -7,4 +7,5 @@ class GameplayTest < Minitest::Test
     assert_instance_of Gameplay, Gameplay.new
   end
 
+
 end

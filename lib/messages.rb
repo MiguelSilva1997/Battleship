@@ -46,7 +46,7 @@ module Messages
     "Wake Up! There is nothing there."
   end
 
-  def shot
+  def shots
     "Take your best shot soldier."
   end
 

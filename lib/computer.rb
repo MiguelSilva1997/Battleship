@@ -12,7 +12,8 @@ class Computer
   end
 
   def random_position_destroyer
-    destroyer_validations.sample
+    ships.destroyer[:coordinates] = destroyer_validations.sample
+    board_positioning_destroyer
   end
 
   def random_position_cruiser
@@ -30,8 +31,20 @@ class Computer
     if full_coordinates.any?{|a| ships.destroyer[:coordinates].include?(a)}
       random_position_cruiser
     else
-      full_coordinates.flatten
+      ships.cruiser[:coordinates] = full_coordinates.flatten
+      board_positioning_cruiser
     end
   end
 
+  def board_positioning_cruiser
+    ships.cruiser[:coordinates].each do |position|
+      dashboard.board[position][0] = true
+    end
+  end
+
+  def board_positioning_destroyer
+    ships.destroyer[:coordinates].each do |position|
+      dashboard.board[position][0] = true
+    end
+  end
 end
