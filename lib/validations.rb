@@ -1,24 +1,46 @@
 module Validations
 
+  def keys
+    letters = ("A".."Z").to_a.shift(4)
+    number = ("1".."26").to_a.shift(4)
+    letters.map {|letter| number.map {|num| letter + num}}.flatten
+  end
+
+  def vertical
+    keys.map do |key|
+      [] << key << key[0].next + key[1] unless key[0] == "D"
+    end.compact
+  end
+
+  def horizontal
+    keys.map do |key|
+      [] << key << key[0] + key[1].next unless key[1] == "4"
+    end.compact
+  end
+
   def destroyer_validations
-    [["A1", "A2"], ["A2", "A3"], ["A3", "A4"],
-     ["B1", "B2"], ["B2", "B3"] ,["B3", "B4"],
-     ["C1", "C2"], ["C2", "C3"], ["C3", "C4"],
-     ["D1", "D2"], ["D2", "D3"], ["D3", "D4"],
-     ["A1", "B1"], ["B1", "C1"], ["C1", "D1"],
-     ["A2", "B2"], ["B2", "C2"] ,["C2", "D2"],
-     ["A3", "B3"], ["B3", "C3"], ["C3", "D3"],
-     ["A4", "B4"], ["B4", "C4"], ["C4", "D4"]]
+    vertical.compact.concat(horizontal.compact)
+  end
+
+  def vertical_cruiser
+    keys.map do |key|
+      [] << key << key[0].next.next + key[1] unless key[0] == "C" || key[0] == "D"
+    end
+  end
+
+  def horizontal_cruiser
+    keys.map do |key|
+      [] << key << key[0] + key[1].next.next unless key[1] == "3" || key[1] == "4"
+    end
   end
 
   def cruiser_validations
-    [["A1", "A3"], ["A2", "A4"],
-     ["B1", "B3"], ["B2", "B4"],
-     ["C1", "C3"], ["C2", "C4"],
-     ["D1", "D3"], ["D2", "D4"],
-     ["A1", "B3"], ["B2", "D4"],
-     ["A2", "C2"], ["B2", "D2"],
-     ["A3", "C3"], ["B3", "D3"],
-     ["A4", "C4"], ["B4", "D4"],]
+    vertical_cruiser.compact.concat(horizontal_cruiser.compact)
+  end
+
+  def board_key
+    positions = {}
+    keys.each {|key| positions[key] = [false, " "]}
+    positions
   end
 end
