@@ -15,7 +15,7 @@ class Gameplay
   end
 
   def input
-    gets.chomp
+    gets.chomp.strip
   end
 
   def display(input)

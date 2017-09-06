@@ -18,7 +18,7 @@ class Player
   end
 
   def input
-    gets.chomp
+    gets.chomp.strip
   end
 
   def player_coordinates_destroyer(coordinate)
