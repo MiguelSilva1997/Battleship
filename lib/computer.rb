@@ -18,7 +18,7 @@ class Computer
 
   def random_position_cruiser
     coordinates = cruiser_validations.sample
-    if coordinates[0][0] == coordinates[1][0]
+    if horizontal_cruiser.include?(coordinates)
       full_coordinates = coordinates.insert(1,[coordinates[0][0] + coordinates[0][1].next])
       check_for_ai_occupied_positions(full_coordinates.flatten)
     else
