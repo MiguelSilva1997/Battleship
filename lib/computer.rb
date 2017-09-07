@@ -1,7 +1,6 @@
 require './lib/dashboard'
 require './lib/ships'
 require './lib/validations'
-require 'pry'
 class Computer
   include Validations
   attr_accessor :ships, :dashboard

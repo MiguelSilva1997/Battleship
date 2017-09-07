@@ -59,17 +59,25 @@ class Gameplay
       shoot
     elsif ai.dashboard.board[shot][0] == true
       display(hits)
-      ai.dashboard.board[shot][1] = "\u{1F4A5}"
-      sleep(3)
-      display(ai.dashboard.begginer_game)
+      hit(ai, shot)
       check_ai_armada
     else
       display(miss)
-      ai.dashboard.board[shot][1] = "\u{1F30A}"
-      sleep(3)
-      display(ai.dashboard.begginer_game)
+      missed(ai, shot)
       ai_shoot
     end
+  end
+
+  def hit(user, shot)
+    user.dashboard.board[shot][1] = "\u{1F4A5}"
+    sleep(3)
+    display(user.dashboard.begginer_game)
+  end
+
+  def missed(user, shot)
+    user.dashboard.board[shot][1] = "\u{1F30A}"
+    sleep(3)
+    display(user.dashboard.begginer_game)
   end
 
   def check_ai_armada
@@ -107,19 +115,16 @@ class Gameplay
       ai_shoot
     elsif player.dashboard.board[shot][0] == true
       display(ai_hit)
-      player.dashboard.board[shot][1] = "\u{1F4A5}"
-      sleep(2)
-      display(player.dashboard.begginer_game)
+      hit(player, shot)
       check_player_armada
     else
       display(ai_miss)
-      player.dashboard.board[shot][1] = "\u{1F30A}"
-      sleep(2)
-      display(player.dashboard.begginer_game)
+      missed(player, shot)
       display(shots)
       shoot
     end
   end
+
 
   def check_player_armada
     if check_for_player_destroyer && check_for_player_cruiser
@@ -127,11 +132,14 @@ class Gameplay
       end_game(ai)
     elsif check_for_player_destroyer
       display(player_destroyer)
+      display(shots)
       shoot
     elsif check_for_player_cruiser
+      display(shots)
       display(player_cruiser)
       shoot
     else
+      display(shots)
       shoot
     end
   end
